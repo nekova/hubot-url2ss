@@ -2,11 +2,12 @@
 #   Render a screenshot of url using Heroku add-on
 #
 # Configuration:
-#   LIST_OF_ENV_VARS_TO_SET
+#   CLOUD_NAME
+#   CLOUD_API_KEY
+#   CLOUD_API_SECRET
 #
 # Commands:
-#   hubot hello - <what the respond trigger does>
-#   orly - <what the hear trigger does>
+#   hubot url2ss <url> - Return a image url
 #
 # Notes:
 #   <optional notes required for the script>
@@ -14,9 +15,18 @@
 # Author:
 #   nekova[@<org>]
 
-module.exports = (robot) ->
-  robot.respond /hello/, (msg) ->
-    msg.reply "hello!"
+cloudinary = require('cloudinary')
 
-  robot.hear /orly/, ->
-    msg.send "yarly"
+screenCapture = (url) ->
+  cloudinary.url url,
+    type: "url2png"
+    sign_url: true
+
+module.exports = (robot) ->
+  robot.respond /url2ss (.*)$/i, (msg) ->
+    cloudinary.config
+      cloud_name: process.env.CLOUD_NAME,
+      api_key:    process.env.CLOUD_API_KEY,
+      api_secret: process.env.CLOUD_API_SECRET
+
+    msg.send screenCapture(msg.match[1])
