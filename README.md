@@ -1,6 +1,7 @@
 # hubot-url2ss
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
+***THIS SCRIPTS DEPENDS ON HEROKU AND ITS ADD-ON***
 Render a screenshot of url using Heroku add-on
 
 See [`src/url2ss.coffee`](src/url2ss.coffee) for full documentation.
@@ -17,11 +18,18 @@ Then add **hubot-url2ss** to your `external-scripts.json`:
 ["hubot-url2ss"]
 ```
 
+##Configuration
+```
+cloud_name: CLOUD_NAME
+api_key:    CLOUD_API_KEY
+api_secret: CLOUD_API_SECRET
+```
+
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+nekova> url2ss http://github.com
+hubot> http://res.cloudinary.com/CLOUD_NAME/image/url2png/XXXXXXXX/http://github.com
 ```
 
 [npm-url]: https://npmjs.org/package/hubot-url2ss
