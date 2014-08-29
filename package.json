@@ -1,25 +1,27 @@
 {
   "name": "hubot-url2ss",
   "description": "Render a screenshot of url using Heroku add-on",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "nekova <nekova07@gmail.com>",
   "license": "MIT",
-
-  "keywords": ["hubot","hubot-scripts","screenshot","cloudinary","url2png"],
-
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "screenshot",
+    "cloudinary",
+    "url2png"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/nekova/hubot-url2ss.git"
   },
-
   "bugs": {
     "url": "https://github.com/nekova/hubot-url2ss/issues"
   },
-
   "dependencies": {
+    "cloudinary": "^1.0.12",
     "coffee-script": "^1.7.0"
   },
-
   "devDependencies": {
     "boolify-string": "^0.1.0",
     "coveralls": "^2.10.1",
@@ -39,9 +41,7 @@
     "power-assert": "^0.7.2",
     "sinon": "^1.10.2"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "test": "gulp test",
     "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
