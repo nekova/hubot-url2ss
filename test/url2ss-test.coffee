@@ -10,4 +10,4 @@ describe 'url2ss', ->
     require('../src/url2ss')(@robot)
 
   it 'registers a respond listener', ->
-    asserc.ok(@robot.respond.calledWith(/url2ss (.*)/))
+    asserc.ok(@robot.respond.calledWith(/cap (.*)/))

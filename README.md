@@ -28,7 +28,7 @@ api_secret: CLOUD_API_SECRET
 ## Sample Interaction
 
 ```
-nekova> url2ss http://github.com
+nekova> cap http://github.com
 hubot> http://res.cloudinary.com/CLOUD_NAME/image/url2png/XXXXXXXX/http://github.com
 ```
 

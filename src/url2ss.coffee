@@ -7,7 +7,7 @@
 #   CLOUD_API_SECRET
 #
 # Commands:
-#   hubot url2ss <url> - Return a image url
+#   hubot cap <url> - Return a image url
 #
 # Notes:
 #   <optional notes required for the script>
@@ -23,7 +23,7 @@ screenCapture = (url) ->
     sign_url: true
 
 module.exports = (robot) ->
-  robot.respond /url2ss (.*)$/i, (msg) ->
+  robot.respond /cap (.*)$/i, (msg) ->
     cloudinary.config
       cloud_name: process.env.CLOUD_NAME,
       api_key:    process.env.CLOUD_API_KEY,
