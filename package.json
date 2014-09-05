@@ -1,7 +1,7 @@
 {
   "name": "hubot-url2ss",
   "description": "Render a screenshot of url using Heroku add-on",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "nekova <nekova07@gmail.com>",
   "license": "MIT",
   "keywords": [
