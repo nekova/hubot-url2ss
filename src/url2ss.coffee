@@ -1,10 +1,10 @@
 # Description
-#   Render a screenshot of url using Heroku add-on
+#   Capture a screenshot from url
 #
 # Configuration:
-#   CLOUD_NAME
-#   CLOUD_API_KEY
-#   CLOUD_API_SECRET
+#   CLOUDINARY_NAME:
+#   CLOUDINARY_API_KEY
+#   CLOUDINARY_API_SECRET
 #
 # Commands:
 #   hubot cap <url> - Return a image url
@@ -13,11 +13,11 @@
 #   <optional notes required for the script>
 #
 # Author:
-#   nekova[@<org>]
+#   nekova
 
 cloudinary = require('cloudinary')
 
-screenCapture = (url) ->
+Capture = (url) ->
   cloudinary.url url,
     type: "url2png"
     sign_url: true
@@ -25,8 +25,8 @@ screenCapture = (url) ->
 module.exports = (robot) ->
   robot.respond /cap (.*)$/i, (msg) ->
     cloudinary.config
-      cloud_name: process.env.CLOUD_NAME,
-      api_key:    process.env.CLOUD_API_KEY,
-      api_secret: process.env.CLOUD_API_SECRET
+      cloud_name: process.env.CLOUDINARY_NAME,
+      api_key:    process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET
 
-    msg.send screenCapture(msg.match[1])
+    msg.send Capture(msg.match[1])
